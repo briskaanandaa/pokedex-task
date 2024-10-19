@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { config } = require("process");
 const { types } = require("util");
 
 async function generateJsonDB() {
@@ -11,7 +12,7 @@ async function generateJsonDB() {
     const pokemonList = await fetch(pokemonApiURL).then((res) => res.json());
     const payLoad = [];
     console.log(pokemonList);
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < pokemonList.results.length; i++) {
       const pokemon = pokemonList.results[i];
       const detail = await fetch(pokemon.url).then((res) => res.json());
       const species = await fetch(detail.species.url).then((res) => res.json());
@@ -39,7 +40,11 @@ async function generateJsonDB() {
       payLoad.push(item);
       console.log(detail);
     }
-
+    fs.writeFileSync(
+      "./db.json",
+      JSON.stringify({ pokemon: payLoad }, null, 2),
+      "utf8"
+    );
     console.log(payLoad);
   } catch (err) {
     console.error(err);
