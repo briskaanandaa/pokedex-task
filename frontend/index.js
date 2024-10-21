@@ -22,7 +22,7 @@ function PokemonCard(props) {
     "div",
     {
       className:
-        "bg-white border-4 border-white rounded-lg m-1 shadow-lg w-44 h-60 transform transition-all hover:shadow-xl hover:translate-y-2 ", // Brutalism style
+        "bg-white border-4 border-white rounded-lg m-1 shadow-lg w-44 h-60 transform transition-all hover:shadow-xl hover:translate-y-2 ",
     },
     React.createElement("img", {
       src: props.image,
@@ -38,7 +38,7 @@ function PokemonCard(props) {
       "p",
       {
         className:
-          "text-xs text-center text-white bg-slate-900 px-4 py-1 rounded-full w-fit mx-auto font-rubik", // Rounded background on type
+          "text-xs text-center text-white bg-slate-900 px-4 py-1 rounded-full w-fit mx-auto font-rubik",
       },
       `Type: ${props.types}`
     )
@@ -59,7 +59,7 @@ function PokemonList() {
     "div",
     {
       className:
-        "grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-7 2xl:grid-cols-10 gap-6 sm:p-10 p-5 justify-items-center", // Grid with more space
+        "grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-7 2xl:grid-cols-10 gap-6 sm:p-10 p-5 justify-items-center",
     },
     pokemonData.map((pokemon) =>
       React.createElement(PokemonCard, {
@@ -77,7 +77,7 @@ function App() {
   return React.createElement(
     "div",
     {
-      className: "bg-slate-200 min-h-screen font-rubik", // Apply 8-bit font globally
+      className: "bg-slate-200 min-h-screen font-rubik",
     },
     React.createElement(
       "header",
@@ -96,6 +96,7 @@ function App() {
       )
     ),
     React.createElement(PokemonList, null),
+    //Footer Component
     React.createElement(
       "footer",
       { className: "text-black text-lg font-medium p-8 text-center bg-white" },
